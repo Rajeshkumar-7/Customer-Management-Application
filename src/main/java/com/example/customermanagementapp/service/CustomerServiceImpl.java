@@ -17,16 +17,19 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> getAllCustomers() {
+        // Get all the customers from the database using inbuilt method
         return customerRepository.findAll();
     }
 
     @Override
     public void saveCustomer(Customer customer) {
+        // Save the customer to database
         customerRepository.save(customer);
     }
 
     @Override
     public Customer getCustomerById(int id) {
+        // Get the customer from the database using id
         Optional<Customer> optionalCustomer = customerRepository.findById(id);
         Customer customer = null;
         if(optionalCustomer.isPresent()){
@@ -39,6 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(int id) {
+        // Delete the customer form the database
         customerRepository.deleteById(id);
     }
 }
